@@ -10,17 +10,17 @@ function writePassword() {
 
 function generatePassword() {
   var passwordLength = setLength();
-  //lowercase
-  //uppercase
-  //numbers
-  //specialChars
-  
+  var lowerCase = includeLowercase();
+  var upperCase = includeUppercase();
+  var numbers = includeNumbers();
+  var specialChars = includeSpecialChars();
+
   //build array
 
   var password = "";
   for (var i = 0; i < passwordLength; i++) {
     password = password + "b";
-    //could also be password += "b"
+    //is the same thing as password += "b"
   }
   return password;
 }
@@ -35,29 +35,28 @@ function setLength() {
   return length;
 }
 
+function includeLowercase() {
+  var lowerCase = confirm("Do you want to include lowercase letters?");
+  return lowerCase;
+}
 
-// if (lowerCase == "yes") {
-//   console.log("Include lowercase letters");
-// }
+function includeUppercase() {
+  var upperCase = confirm("Do you want to include uppercase letters?");
+  return upperCase;
+}
 
-// passwordText.value = password;
+function includeNumbers() {
+  var numbers = confirm("Do you want to include uppercase letters?");
+  return numbers;
+}
+
+function includeSpecialChars() {
+  var specialChars = confirm("Do you want to include uppercase letters?");
+  return specialChars;
+}
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-// Store variables in passwordText (document.querySelector #password)
-
-//When the user clicks generate password, they are prompted with:
-//Number of characters you would like your password to be (between 8 and 128)
-//  Do you want to include lowercase characters?
-// Do you want to include uppercase?
-// Do you want to include numbers?
-// Do you want to include special characters?
-
-//If password.Length <== 8 && password.Length >== 128, then prompt next question
-// else alert Please choose a valid number of characters.
-//If user clicks yes, then assign value to variable
-// else prompt next question (3 times, 4th time would return password displayed on screen) - so this is a loop
 
 // GIVEN I need a new, secure password
 // WHEN I click the button to generate a password
