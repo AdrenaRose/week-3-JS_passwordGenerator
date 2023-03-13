@@ -5,21 +5,55 @@ var generateBtn = document.querySelector("#generate");
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
   passwordText.value = password;
 }
+
+function generatePassword() {
+  do {
+    var passwordLength = prompt(
+      "Choose a number of characters between 8 and 128"
+    );
+    if (passwordLength === null) break;
+    if (!(passwordLength > 8 && passwordLength < 128))
+      alert("Please choose a valid number of characters");
+  } while (!(passwordLength > 8 && passwordLength < 128));
+  var password = "";
+  for (var i = 0; i < passwordLength; i++) {
+    password = password + "b";
+    //could also be password += "b"
+  }
+  return password;
+}
+
+//     var lowerCase = prompt("Do you want to include lowercase letters?");
+//     var upperCase = prompt("Do you want to include uppercase letters?");
+//     var numbers = prompt("Do you want to include numbers?");
+//     var specialChars = prompt("Do you want to include special characters?");
+//   }
+// }
+
+// if (lowerCase == "yes") {
+//   console.log("Include lowercase letters");
+// }
+
+// passwordText.value = password;
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-if () {
-  prompt("Do you want to include lowercase characters?");
-}
+// Store variables in passwordText (document.querySelector #password)
 
-prompt("Do you want to include lowercase characters?");
-prompt("Do you want to include uppercase characters?");
-prompt("Do you want to include numeric characters?");
-prompt("Do you want to include special characters?");
+//When the user clicks generate password, they are prompted with:
+//Number of characters you would like your password to be (between 8 and 128)
+//  Do you want to include lowercase characters?
+// Do you want to include uppercase?
+// Do you want to include numbers?
+// Do you want to include special characters?
+
+//If password.Length <== 8 && password.Length >== 128, then prompt next question
+// else alert Please choose a valid number of characters.
+//If user clicks yes, then assign value to variable
+// else prompt next question (3 times, 4th time would return password displayed on screen) - so this is a loop
 
 // GIVEN I need a new, secure password
 // WHEN I click the button to generate a password
