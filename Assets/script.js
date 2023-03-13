@@ -9,14 +9,14 @@ function writePassword() {
 }
 
 function generatePassword() {
-  do {
-    var passwordLength = prompt(
-      "Choose a number of characters between 8 and 128"
-    );
-    if (passwordLength === null) break;
-    if (!(passwordLength > 8 && passwordLength < 128))
-      alert("Please choose a valid number of characters");
-  } while (!(passwordLength > 8 && passwordLength < 128));
+  var passwordLength = setLength();
+  //lowercase
+  //uppercase
+  //numbers
+  //specialChars
+  
+  //build array
+
   var password = "";
   for (var i = 0; i < passwordLength; i++) {
     password = password + "b";
@@ -25,12 +25,16 @@ function generatePassword() {
   return password;
 }
 
-//     var lowerCase = prompt("Do you want to include lowercase letters?");
-//     var upperCase = prompt("Do you want to include uppercase letters?");
-//     var numbers = prompt("Do you want to include numbers?");
-//     var specialChars = prompt("Do you want to include special characters?");
-//   }
-// }
+function setLength() {
+  do {
+    var length = prompt("Choose a number of characters between 8 and 128");
+    if (length === null) return null;
+    if (!(length > 8 && length < 128))
+      alert("Please choose a valid number of characters");
+  } while (!(length > 8 && length < 128));
+  return length;
+}
+
 
 // if (lowerCase == "yes") {
 //   console.log("Include lowercase letters");
